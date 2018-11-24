@@ -117,9 +117,9 @@ var Engine = (function(global) {
 	 */
 	function renderEntities() {
 		/* 遍历在 allEnemies 数组中存放的作于对象然后调用你事先定义的 render 函数 */
-		// allEnemies.forEach(function(enemy) {
-		//     enemy.render();
-		// });
+		allEnemies.forEach(function(enemy) {
+			enemy.render()
+		})
 		// player.render();
 	}
 
