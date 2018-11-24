@@ -43,6 +43,24 @@ const Player = function(x, y, speed) {
 	this.sprite = this.playerSprite[Math.floor(Math.random() * 5)]
 }
 
+Player.prototype.update = function() {
+	// 防止玩家移出画布
+	if (this.y > 380) {
+		this.y = 380
+	}
+
+	if (this.x > 400) {
+		this.x = 400
+	}
+
+	if (this.x < 0) {
+		this.x = 0
+	}
+	if (this.y < 0) {
+		this.y = 0
+	}
+}
+
 Player.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
 }
