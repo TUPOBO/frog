@@ -66,8 +66,11 @@ Player.prototype.update = function() {
 	if (this.x < 0) {
 		this.x = 0
 	}
+
+	// 玩家到达终点后自动回到原点
 	if (this.y < 0) {
-		this.y = 0
+		this.x = 200
+		this.y = 380
 	}
 }
 
