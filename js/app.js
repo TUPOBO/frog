@@ -20,6 +20,16 @@ Enemy.prototype.update = function(dt) {
 		this.x = -100
 		this.speed = 100 + Math.floor(Math.random() * 415)
 	}
+
+	if (
+		player.x < this.x + 60 &&
+		player.x + 37 > this.x &&
+		player.y < this.y + 25 &&
+		30 + player.y > this.y
+	) {
+		player.x = 200
+		player.y = 380
+	}
 }
 
 // 此为游戏必须的函数，用来在屏幕上画出敌人，
