@@ -22,7 +22,22 @@ Enemy.prototype.render = function() {
 
 // 现在实现你自己的玩家类
 // 这个类需要一个 update() 函数， render() 函数和一个 handleInput()函数
+const Player = function(x, y) {
+	this.x = x
+	this.y = y
+	this.playerSprite = [
+		'images/char-princess-girl.png',
+		'images/char-boy.png',
+		'images/char-cat-girl.png',
+		'images/char-horn-girl.png',
+		'images/char-pink-girl.png'
+	]
+	this.sprite = this.playerSprite[Math.floor(Math.random() * 5)]
+}
 
+Player.prototype.render = function() {
+	ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
+}
 // 现在实例化你的所有对象
 // 把所有敌人的对象都放进一个叫 allEnemies 的数组里面
 const enemyPosition = [63, 146, 229]
@@ -31,6 +46,7 @@ enemyPosition.forEach(y => {
 	allEnemies.push(new Enemy(0, y))
 })
 // 把玩家对象放进一个叫 player 的变量里面
+const player = new Player(200, 380)
 // 这段代码监听游戏玩家的键盘点击事件并且代表将按键的关键数字送到 Player.handleInput()
 // 方法里面。你不需要再更改这段代码了。
 document.addEventListener('keyup', function(e) {
