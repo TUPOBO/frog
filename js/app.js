@@ -29,9 +29,10 @@ Enemy.prototype.render = function() {
 
 // 现在实现你自己的玩家类
 // 这个类需要一个 update() 函数， render() 函数和一个 handleInput()函数
-const Player = function(x, y) {
+const Player = function(x, y, speed) {
 	this.x = x
 	this.y = y
+	this.speed = 50
 	this.playerSprite = [
 		'images/char-princess-girl.png',
 		'images/char-boy.png',
@@ -44,6 +45,23 @@ const Player = function(x, y) {
 
 Player.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
+}
+
+Player.prototype.handleInput = function(keyPress) {
+	switch (keyPress) {
+		case 'left':
+			this.x -= this.speed + 50
+			break
+		case 'up':
+			this.y -= this.speed + 30
+			break
+		case 'right':
+			this.x += this.speed + 50
+			break
+		case 'down':
+			this.y += this.speed + 30
+			break
+	}
 }
 // 现在实例化你的所有对象
 // 把所有敌人的对象都放进一个叫 allEnemies 的数组里面
