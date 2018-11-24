@@ -72,9 +72,9 @@ var Engine = (function(global) {
 	 * 这些更新函数应该只聚焦于更新和对象相关的数据/属性。把重绘的工作交给 render 函数。
 	 */
 	function updateEntities(dt) {
-		// allEnemies.forEach(function(enemy) {
-		//     enemy.update(dt);
-		// });
+		allEnemies.forEach(function(enemy) {
+			enemy.update(dt)
+		})
 		// player.update();
 	}
 
